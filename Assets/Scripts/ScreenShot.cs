@@ -4,13 +4,18 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class ScreenShot : MonoBehaviour {
-
+	private AudioSource[] audioSources;
+	private AudioSource clickAudio;
 	public Button saveButton;
 
 	// Use this for initialization
 	void Start () {
 		Button btn = saveButton.GetComponent<Button>();
 		btn.onClick.AddListener(OnClick);
+
+		// Audio
+		AudioSource[] audios = GetComponents<AudioSource>();
+		clickAudio = audios[0];
 	}
 
 
@@ -24,6 +29,7 @@ public class ScreenShot : MonoBehaviour {
 		// On MAC data is written into ~/Library/Application Support/company/product
 		string fileName = "Dreamviewer";
 		ScreenshotManager.SaveScreenshot(fileName, fileName);
+		clickAudio.Play ();
 		// System.DateTime.UtcNow.ToString("HH:mm:ss dd MMMM, yyyy") 
 		// fileName = fileName + System.DateTime.UtcNow.ToString("-yyyy");
 		// fileName = fileName + System.DateTime.UtcNow.ToString("-MMMM");
