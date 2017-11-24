@@ -129,25 +129,27 @@ public class ColorPicker : MonoBehaviour {
 			titleStyle.normal.textColor = textColor;
 		}
 
+		int yOffset = 30;
 
 		Rect rectColorEdit = new Rect(startPos.x + sizeCurr + 10, startPos.y + 30, 40, 140);
 		Rect rectColorSlider = new Rect(startPos.x + sizeCurr + 50, startPos.y + 30, 70, 140);
 
-		GUI.Label(new Rect(startPos.x + sizeCurr + 60, startPos.y, 200, 30), Title, titleStyle);
+		// Do not display text or selected color 
+		// GUI.Label(new Rect(startPos.x + sizeCurr + 100, startPos.y, 200, 30), Title, titleStyle);
+		// GUI.DrawTexture (new Rect (startPos.x + sizeCurr + 10, startPos.y, 80, 40), txColorDisplay);
 
-		GUI.DrawTexture(new Rect(startPos.x + sizeCurr + 10, startPos.y, 40, 20), txColorDisplay);
 
-		if(mState == ESTATE.Showed)
+		if(mState == ESTATE.Showed && false)
 		{
-			txtR = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 30, 40, 20), txtR, 3);
-			txtG = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 60, 40, 20), txtG, 3);
-			txtB = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 90, 40, 20), txtB, 3);
-			txtA = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + 120, 40, 20), txtA, 3);
-			valR = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 35, 60, 20), valR, 0.0f, 1.0f);
-			valG = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 65, 60, 20), valG, 0.0f, 1.0f);
-			valB = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 95, 60, 20), valB, 0.0f, 1.0f);
-			valA = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + 125, 60, 20), valA, 0.0f, 1.0f);
-			if(GUI.Button(new Rect(startPos.x + sizeCurr + 10, startPos.y + 150, 60, 20), "Apply"))
+			txtR = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + yOffset+ 30, 40, 20), txtR, 3);
+			txtG = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + yOffset+ 60, 40, 20), txtG, 3);
+			txtB = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + yOffset+ 90, 40, 20), txtB, 3);
+			txtA = GUI.TextField(new Rect(startPos.x + sizeCurr + 10, startPos.y + yOffset+ 120, 40, 20), txtA, 3);
+			valR = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + yOffset + 35, 60, 20), valR, 0.0f, 1.0f);
+			valG = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + yOffset + 65, 60, 20), valG, 0.0f, 1.0f);
+			valB = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + yOffset + 95, 60, 20), valB, 0.0f, 1.0f);
+			valA = GUI.HorizontalSlider(new Rect(startPos.x + sizeCurr + 50, startPos.y + yOffset+ 125, 60, 20), valA, 0.0f, 1.0f);
+			if(GUI.Button(new Rect(startPos.x + sizeCurr + 10, startPos.y + yOffset+  150, 60, 20), "Apply"))
 			{
 				ApplyColor();
 				SelectedColor = TempColor;
@@ -159,10 +161,10 @@ public class ColorPicker : MonoBehaviour {
 
 			GUIStyle labelStyleRGBA = new GUIStyle(GUI.skin.label);
 			labelStyleRGBA.normal.textColor = Color.white;
-			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + 30, 20, 20), "R", labelStyleRGBA);
-			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + 60, 20, 20), "G", labelStyleRGBA);
-			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + 90, 20, 20), "B", labelStyleRGBA);
-			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + 120, 20, 20), "A", labelStyleRGBA);
+			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + yOffset+ 30, 20, 20), "R", labelStyleRGBA);
+			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + yOffset+ 60, 20, 20), "G", labelStyleRGBA);
+			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + yOffset+ 90, 20, 20), "B", labelStyleRGBA);
+			GUI.Label(new Rect(startPos.x + sizeCurr + 110, startPos.y + yOffset+ 120, 20, 20), "A", labelStyleRGBA);
 		}
 
 		//update scaling states
