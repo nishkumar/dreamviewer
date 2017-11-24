@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+// Credits:
+// Audio source: http://soundbible.com/330-Camera-Click.html
+
+
 public class ScreenShot : MonoBehaviour {
 	private AudioSource[] audioSources;
 	private AudioSource clickAudio;
