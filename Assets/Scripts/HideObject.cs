@@ -10,6 +10,7 @@ public class HideObject : MonoBehaviour {
 	public GameObject sofa;
 	public GameObject table;
 	public GameObject chair;
+	public GameObject rack;
 	public GameObject selectedObject;
 	public Button leftButton;
 	public Button rightButton;
@@ -41,6 +42,9 @@ public class HideObject : MonoBehaviour {
 
 		if (chair)
 			objectArray [6] = chair;
+
+		if (rack)
+			objectArray [7] = rack;
 
 		//////////////////////////////////////////////////////////////////////
 		index = 0;
@@ -77,6 +81,10 @@ public class HideObject : MonoBehaviour {
 
 		if (chair) {
 			chair.GetComponent<Renderer> ().enabled = false;
+		}
+
+		if (rack) {
+			rack.GetComponent<Renderer> ().enabled = false;
 		}
 
 		/*
